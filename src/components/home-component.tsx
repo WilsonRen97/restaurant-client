@@ -43,7 +43,7 @@ const MichelinRating = (p: MichelinRatingProps) => {
   let { michelinType } = p;
   if (michelinType === "3-star-michelin") {
     return (
-      <div>
+      <div style={{ marginLeft: "10px" }}>
         <StarImag size={3} />
         <StarImag size={3} />
         <StarImag size={3} />
@@ -51,14 +51,14 @@ const MichelinRating = (p: MichelinRatingProps) => {
     );
   } else if (michelinType === "2-star-michelin") {
     return (
-      <div>
+      <div style={{ marginLeft: "10px" }}>
         <StarImag size={3} />
         <StarImag size={3} />
       </div>
     );
   } else if (michelinType === "1-star-michelin") {
     return (
-      <div>
+      <div style={{ marginLeft: "10px" }}>
         <StarImag size={3} />
       </div>
     );
