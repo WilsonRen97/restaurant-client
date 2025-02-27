@@ -68,6 +68,7 @@ const MichelinRating = (p: MichelinRatingProps) => {
         style={{
           fontSize: "2vw",
           color: "#c02434",
+          marginBottom: "0px",
         }}
       >
         &nbsp;&nbsp;(Bib-Gourmand)
@@ -79,6 +80,7 @@ const MichelinRating = (p: MichelinRatingProps) => {
         style={{
           fontSize: "2vw",
           color: "#c02434",
+          marginBottom: "0px",
         }}
       >
         &nbsp;&nbsp;(Michelin Selected)
@@ -166,7 +168,7 @@ const HomeComponent = () => {
           <h1 style={{ fontFamily: "Inter", fontSize: "10vw" }}>Stars</h1>
         </div>
 
-        <div className="slider-container">
+        <div className="slider-container" style={{ padding: "30px" }}>
           <Slider {...settings}>
             <div>
               <img
