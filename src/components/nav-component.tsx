@@ -15,6 +15,11 @@ const NavComponent = () => {
               Register
             </Link>
           </li>
+          <li>
+            <Link className="nav-link" to="/login">
+              login
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>

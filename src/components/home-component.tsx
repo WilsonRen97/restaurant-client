@@ -3,6 +3,7 @@ import RestaurantService from "../services/restaurant.service";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Restaurant } from "../interfaces/restaurant-interface";
 
 interface StarImagProps {
   className?: string;
@@ -11,17 +12,6 @@ interface StarImagProps {
 
 interface MichelinRatingProps {
   michelinType: string;
-}
-
-interface Restaurant {
-  _id: string;
-  name: string;
-  address: string;
-  image_url: string[];
-  michelin_type: string;
-  comment: string[];
-  description: string;
-  owner: string | null;
 }
 
 const StarImag = (p: StarImagProps) => {
