@@ -16,7 +16,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route
+          path="/"
+          element={
+            <Layout currentUser={currentUser} setCurrentUser={setCurrentUser} />
+          }
+        >
           <Route index element={<HomeComponent />} />
           <Route path="register" element={<RegisterComponent />} />
           <Route

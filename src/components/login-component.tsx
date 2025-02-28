@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
-import { CurrentUser } from "../interfaces/user-interface";
+import { ComponentInterface } from "../interfaces/component-interface";
 
-interface LoginComponentProps {
-  currentUser: CurrentUser;
-  setCurrentUser: (user: CurrentUser) => void;
-}
-
-const LoginComponent: React.FC<LoginComponentProps> = ({
+const LoginComponent: React.FC<ComponentInterface> = ({
   currentUser,
   setCurrentUser,
 }) => {

@@ -11,6 +11,18 @@ div.wrong-path img {
   padding: 20px;
 }
 
+button.red-button {
+  background-color: #c02434;
+  color: white;
+  height: 50px;
+  font-family: "Inter";
+  font-size: 18px;
+}
+
+.nav-font {
+  font-family: "Inter";
+}
+
 a.normal_link {
   display: inline-block;
   text-decoration: none;

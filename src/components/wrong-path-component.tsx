@@ -3,7 +3,7 @@ import "../styles/style.css";
 
 const WrongPathComponent = () => {
   return (
-    <div className="wrong-path">
+    <div className="wrong-path nav-font">
       <h2>Oops! This page doesn’t exist.</h2>
       <img src="/images/not_found.svg" alt="page not found" />
       <h3 style={{ margin: "50px 0px" }}>
