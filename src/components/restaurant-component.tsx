@@ -9,7 +9,6 @@ import { Restaurant } from "../interfaces/restaurant-interface";
 // import other components
 import CommentComponent from "./comment-component";
 import FavoriteVisitedButtonComponent from "./favorite-save-button-component";
-import LoginComponent from "./login-component";
 
 const RestaurantComponent: React.FC<ComponentInterface> = ({
   currentUser,
@@ -25,6 +24,7 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
   const [content, setContent] = useState("");
   const [description, setDescription] = useState("");
   const [editing, setEditing] = useState(false);
+  const [refresh, setRefresh] = useState(false);
 
   // useEffect 監聽依賴項: id, theName, location.pathname, favoritesActive, visitedActive
   useEffect(() => {
@@ -46,7 +46,7 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
     };
 
     fetchData();
-  }, [id, theName, location.pathname]);
+  }, [id, theName, location.pathname, refresh]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -60,8 +60,9 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
           content,
           currentUser.user._id
         );
-        console.log("Comment added:", response);
+        window.alert("Comment uploaded!");
         setContent(""); // Clear the input after submission
+        setRefresh((prev) => !prev);
       }
     } catch (error) {
       console.error("Error adding comment:", error);
@@ -84,14 +85,14 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
   return (
     <>
       {restaurant ? (
-        <div className=" mx-5 py-4 ">
+        <div className="mx-5 py-4">
           {/*  Section 1: Restaurant Picture  */}
           <div className="mb-4 d-flex">
             <div
               id="restaurantCarousel"
               className="carousel slide mb-4 w-50"
               data-bs-ride="carousel"
-              style={{ paddingRight: "75px" }}
+              style={{ padding: "30px" }}
             >
               <div className="carousel-inner">
                 {restaurant.image_url.map((url, index) => (
@@ -106,12 +107,13 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
                       style={{
                         height: "550px",
                         objectFit: "cover",
-                        width: "100%", // Ensures consistent width
+                        width: "100%",
                       }}
                     />
                   </div>
                 ))}
               </div>
+
               <button
                 className="carousel-control-prev"
                 type="button"
@@ -124,6 +126,7 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
                 ></span>
                 <span className="visually-hidden">Previous</span>
               </button>
+
               <button
                 className="carousel-control-next"
                 type="button"
@@ -153,6 +156,16 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
               </p>
               <p className="text-secondary fs-6">{restaurant.address}</p>
 
+              {currentUser ? (
+                <FavoriteVisitedButtonComponent
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                  restaurantId={restaurant._id}
+                />
+              ) : (
+                ""
+              )}
+
               <h4 className="fs-3 mt-4">Description</h4>
               {/* Conditional rendering for buttons */}
               <>
@@ -169,12 +182,7 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
                   </div>
                 ) : (
                   <>
-                    <FavoriteVisitedButtonComponent
-                      currentUser={currentUser}
-                      setCurrentUser={setCurrentUser}
-                      restaurantId={restaurant._id}
-                    ></FavoriteVisitedButtonComponent>
-                    <p className="fs-5">
+                    <p style={{ marginTop: "10px" }} className="fs-5">
                       {description || "No description available."}
                     </p>
                     {
