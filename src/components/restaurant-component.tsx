@@ -9,6 +9,8 @@ import { Restaurant } from "../interfaces/restaurant-interface";
 // import other components
 import CommentComponent from "./comment-component";
 import FavoriteVisitedButtonComponent from "./favorite-save-button-component";
+//import css
+import "../styles/style.css";
 
 const RestaurantComponent: React.FC<ComponentInterface> = ({
   currentUser,
@@ -85,12 +87,12 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
   return (
     <>
       {restaurant ? (
-        <div className="mx-5 py-4">
+        <div className="mx-5 py-4 restaurant-page">
           {/*  Section 1: Restaurant Picture  */}
-          <div className="mb-4 d-flex">
+          <div className="mb-4 d-flex first-container">
             <div
               id="restaurantCarousel"
-              className="carousel slide mb-4 w-50"
+              className="carousel slide mb-4 w-50 picture-section"
               data-bs-ride="carousel"
               style={{ padding: "30px" }}
             >
@@ -141,7 +143,10 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
               </button>
             </div>
             {/*  Section 2: Description */}
-            <div className="mb-4 w-50 ms-2" style={{ fontFamily: "Inter" }}>
+            <div
+              className="mb-4 w-50 ms-2 description-section"
+              style={{ fontFamily: "Inter" }}
+            >
               <h2 style={{ fontWeight: "bold", fontSize: "100px" }}>
                 {restaurant.name}
               </h2>

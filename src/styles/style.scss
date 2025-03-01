@@ -11,6 +11,33 @@ div.wrong-path {
   }
 }
 
+.restaurant-page {
+  .first-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .picture-section {
+      flex: 1 1 500px;
+    }
+    .description-section {
+      flex: 1 1 500px;
+    }
+  }
+}
+
+.comment-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  .comment-element {
+    flex: 1 1 400px;
+    margin: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
 button.red-button {
   background-color: #c02434;
   color: white;
