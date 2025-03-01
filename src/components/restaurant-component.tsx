@@ -105,9 +105,8 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
                     <img
                       src={url}
                       alt={`${restaurant.name} ${index + 1}`}
-                      className="img-fluid rounded w-100"
+                      className="img-fluid rounded w-100 restaurant-img"
                       style={{
-                        height: "550px",
                         objectFit: "cover",
                         width: "100%",
                       }}
