@@ -71,9 +71,13 @@ const NavComponent: React.FC<ComponentInterface> = ({
             id="navbarNav"
           >
             <ul className="navbar-nav">
+              <li className="nav-item me-2 ms-2">
+                <Link className="nav-link" to="/">
+                  Homepage
+                </Link>
+              </li>
               {currentUser === null ? (
                 <>
-                  {" "}
                   <li className="nav-item me-4 ms-2">
                     <Link className="nav-link" to="/login">
                       Login
@@ -86,12 +90,13 @@ const NavComponent: React.FC<ComponentInterface> = ({
                   </li>
                 </>
               ) : (
-                <div className="d-flex">
+                <>
                   <li className="nav-item me-4 ms-2">
-                    <Link className="nav-link" onClick={handleLogout} to="/">
-                      Logout
+                    <Link className="nav-link" to={`/profile`}>
+                      Profile
                     </Link>
                   </li>
+
                   <li className="nav-item me-4 ms-2">
                     <Link
                       className="nav-link"
@@ -100,14 +105,13 @@ const NavComponent: React.FC<ComponentInterface> = ({
                       myRestaurant
                     </Link>
                   </li>
-                </div>
+                  <li className="nav-item me-4 ms-2">
+                    <Link className="nav-link" onClick={handleLogout} to="/">
+                      Logout
+                    </Link>
+                  </li>
+                </>
               )}
-
-              <li className="nav-item me-2 ms-2">
-                <Link className="nav-link" to="/">
-                  Homepage
-                </Link>
-              </li>
             </ul>
           </div>
         </div>

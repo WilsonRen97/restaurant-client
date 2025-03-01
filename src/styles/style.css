@@ -19,6 +19,11 @@ button.red-button {
   font-size: 18px;
 }
 
+.page-format {
+  font-family: "Inter";
+  padding: 3rem;
+}
+
 .nav-font {
   font-family: "Inter";
 }
