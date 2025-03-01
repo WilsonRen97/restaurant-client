@@ -24,7 +24,11 @@ const NavComponent: React.FC<ComponentInterface> = ({
   };
 
   const handleSearch = () => {
-    navigate(`/api/restaurants/findByName/${searchTerm}`);
+    if (searchTerm !== "") {
+      navigate(`/api/restaurants/findByName/${searchTerm}`);
+    } else {
+      window.alert("Please enter a restaurant name.");
+    }
   };
 
   return (

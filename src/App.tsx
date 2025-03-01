@@ -6,6 +6,7 @@ import RegisterComponent from "./components/register-component";
 import WrongPathComponent from "./components/wrong-path-component";
 import LoginComponent from "./components/login-component";
 import ProfileComponent from "./components/profile-component";
+import RestaurantComponent from "./components/restaurant-component";
 // import routes
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import services
@@ -38,6 +39,24 @@ function App() {
             path="profile"
             element={
               <ProfileComponent
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            }
+          />
+          <Route
+            path="/api/restaurants/:id"
+            element={
+              <RestaurantComponent
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            }
+          />
+          <Route
+            path="/api/restaurants/findByName/:theName"
+            element={
+              <RestaurantComponent
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
               />
