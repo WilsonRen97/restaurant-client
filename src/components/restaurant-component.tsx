@@ -189,78 +189,98 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
                     <p style={{ marginTop: "10px" }} className="fs-5">
                       {description || "No description available."}
                     </p>
-                    {
-                      currentUser.user.role === "customer" ? (
-                        // Logged-in user is a customer
+                    {currentUser.user.role === "customer" ? (
+                      // Logged-in user is a customer
+                      <div>
+                        <button
+                          className="btn btn-dark"
+                          onClick={() => setShowCommentArea(!showCommentArea)}
+                        >
+                          {showCommentArea ? "Cancel" : "Make a Comment"}
+                        </button>
+                        {showCommentArea && (
+                          <div className="mt-3">
+                            <textarea
+                              className="form-control"
+                              rows={3}
+                              value={content}
+                              onChange={(e) => setContent(e.target.value)}
+                              placeholder="Write your comment here..."
+                            ></textarea>
+                            <button
+                              className="btn btn-primary mt-2"
+                              onClick={handleCommentSubmit}
+                            >
+                              Submit Comment
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    ) : currentUser.user.role === "restaurateur" ? (
+                      // Logged-in user is a restaurateur
+                      currentUser.user._id === restaurant.owner ? (
+                        // Restaurateur is the owner
+                        editing ? (
+                          <div>
+                            <textarea
+                              className="fs-5"
+                              value={description}
+                              onChange={(e) => setDescription(e.target.value)}
+                              rows={5}
+                              style={{
+                                width: "100%",
+                                fontSize: "1rem",
+                                padding: "10px",
+                                height: "250px",
+                              }}
+                            />
+                            <button
+                              onClick={handleSubmit}
+                              className="btn btn-primary mt-2 me-2"
+                            >
+                              Save Changes
+                            </button>
+                            <button
+                              onClick={handleEditToggle}
+                              className="btn btn-secondary mt-2"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        ) : (
+                          <div>
+                            <button
+                              onClick={handleEditToggle}
+                              className="btn btn-dark mt-2"
+                            >
+                              Edit Description
+                            </button>
+                          </div>
+                        )
+                      ) : (
                         <div>
-                          <button
-                            className="btn btn-dark"
-                            onClick={() => setShowCommentArea(!showCommentArea)}
-                          >
-                            {showCommentArea ? "Cancel" : "Make a Comment"}
-                          </button>
-                          {showCommentArea && (
-                            <div className="mt-3">
-                              <textarea
-                                className="form-control"
-                                rows={3}
-                                value={content}
-                                onChange={(e) => setContent(e.target.value)}
-                                placeholder="Write your comment here..."
-                              ></textarea>
-                              <button
-                                className="btn btn-primary mt-2"
-                                onClick={handleCommentSubmit}
-                              >
-                                Submit Comment
-                              </button>
+                          <p>
+                            <a
+                              className="btn btn-danger"
+                              data-bs-toggle="collapse"
+                              href="#collapseExample"
+                              role="button"
+                              aria-expanded="false"
+                              aria-controls="collapseExample"
+                            >
+                              Are you the owner of this restaurant?
+                            </a>
+                          </p>
+                          <div className="collapse" id="collapseExample">
+                            <div className="card card-body">
+                              If you are the owner of this restaurant, please
+                              contact the admin to gain editing access for this
+                              page.
                             </div>
-                          )}
+                          </div>
                         </div>
-                      ) : currentUser.user.role === "restaurateur" ? (
-                        // Logged-in user is a restaurateur
-                        currentUser.user._id === restaurant.owner ? (
-                          // Restaurateur is the owner
-                          editing ? (
-                            <div>
-                              <textarea
-                                className="fs-5"
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                                rows={5}
-                                style={{
-                                  width: "100%",
-                                  fontSize: "1rem",
-                                  padding: "10px",
-                                  height: "250px",
-                                }}
-                              />
-                              <button
-                                onClick={handleSubmit}
-                                className="btn btn-primary mt-2 me-2"
-                              >
-                                Save Changes
-                              </button>
-                              <button
-                                onClick={handleEditToggle}
-                                className="btn btn-secondary mt-2"
-                              >
-                                Cancel
-                              </button>
-                            </div>
-                          ) : (
-                            <div>
-                              <button
-                                onClick={handleEditToggle}
-                                className="btn btn-dark mt-2"
-                              >
-                                Edit Description
-                              </button>
-                            </div>
-                          )
-                        ) : null // Restaurateur is not the owner
-                      ) : null // Default fallback (optional)
-                    }
+                      ) // Restaurateur is not the owner
+                    ) : null}
                   </>
                 )}
               </>
