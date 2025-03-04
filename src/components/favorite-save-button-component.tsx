@@ -101,7 +101,7 @@ const FavoriteVisitedButtonComponent: React.FC<
   };
 
   return (
-    <div className="d-flex mt-4">
+    <div className="d-flex">
       <button
         className="me-2 btn"
         style={{

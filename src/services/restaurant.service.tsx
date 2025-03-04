@@ -102,4 +102,5 @@ class RestaurantService {
   }
 }
 
-export default new RestaurantService();
+let serviceObject = new RestaurantService();
+export default serviceObject;

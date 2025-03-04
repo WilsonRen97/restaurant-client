@@ -4,8 +4,8 @@ import "../styles/style.css";
 
 const CommentComponent: React.FC<CommentCollection> = ({ comments }) => {
   return (
-    <div style={{ fontFamily: "Inter" }}>
-      <h4 className="mb-4">Tasters' Thoughts</h4>
+    <div className="inter-font">
+      <h4>Tasters' Thoughts</h4>
       {comments.length > 0 ? (
         <div className="comment-container">
           {comments.map((comment) => (

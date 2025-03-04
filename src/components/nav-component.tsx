@@ -33,7 +33,7 @@ const NavComponent: React.FC<ComponentInterface> = ({
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light nav-font">
+      <nav className="navbar navbar-expand-lg navbar-light inter-font">
         <div className="container-fluid">
           {/* Search Section */}
           {shouldShowSearchBar && (

@@ -142,6 +142,13 @@ const HomeComponent = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
+  function shortenString(str: string) {
+    if (str.length > 10) {
+      return str.slice(0, 12) + "...";
+    }
+    return str;
+  }
+
   return (
     <main>
       <div className="container py-4">
@@ -182,7 +189,7 @@ const HomeComponent = () => {
                   fontStyle: "italic",
                 }}
               >
-                {restaurants[0].name}
+                {shortenString(restaurants[0].name)}
                 <MichelinRating
                   michelinType={restaurants[0].michelin_type}
                 ></MichelinRating>
@@ -218,7 +225,7 @@ const HomeComponent = () => {
                   fontStyle: "italic",
                 }}
               >
-                {restaurants[1].name}
+                {shortenString(restaurants[1].name)}
                 <MichelinRating
                   michelinType={restaurants[1].michelin_type}
                 ></MichelinRating>
@@ -253,7 +260,7 @@ const HomeComponent = () => {
                   fontStyle: "italic",
                 }}
               >
-                {restaurants[2].name}
+                {shortenString(restaurants[2].name)}
                 <MichelinRating
                   michelinType={restaurants[2].michelin_type}
                 ></MichelinRating>
