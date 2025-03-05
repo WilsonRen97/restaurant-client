@@ -87,7 +87,7 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
   return (
     <>
       {restaurant ? (
-        <div className="mx-5 py-4 restaurant-page">
+        <div className="mx-3 md:mx-5 py-4 restaurant-page">
           {/*  Section 1: Restaurant Picture  */}
           <div className="mb-4 d-flex first-container">
             <div

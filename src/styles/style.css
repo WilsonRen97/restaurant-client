@@ -73,6 +73,51 @@ a.normal_link:hover {
   transform: scale(1.05);
 }
 
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  margin: 50px 0px;
+  font-family: "Inter";
+}
+
+.toggle-button {
+  background-color: transparent;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 22px;
+  font-family: Inter;
+  transition: all 0.3s ease;
+}
+
+.toggle-button.active {
+  background-color: black;
+  color: white;
+}
+
+.toggle-button:hover {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.list-item {
+  padding: 1rem;
+}
+.list-item h1 {
+  font-family: "Inter";
+  font-weight: bold;
+}
+.list-item .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: "50px 0px";
+}
+
 @media (max-width: 800px) {
   div.wrong-path img {
     width: 80vw;
