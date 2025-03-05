@@ -11,7 +11,7 @@ const RestaurantCardComponent: React.FC<{ restaurant: Restaurant }> = ({
   };
   return (
     <div
-      className="restaurant-card "
+      className="restaurant-card"
       onClick={handleClick}
       style={{
         cursor: "pointer",

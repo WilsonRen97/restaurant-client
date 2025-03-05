@@ -111,15 +111,17 @@ a.normal_link {
 }
 
 .list-item {
-  padding: 1rem;
+  padding: 2rem;
   h1 {
     font-family: "Inter";
     font-weight: bold;
   }
   .content {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: "50px 0px";
+    display: flex;
+    flex-wrap: wrap;
+    .restaurant-card {
+      margin: 1rem 1.5rem;
+    }
   }
 }
 
@@ -133,5 +135,8 @@ a.normal_link {
 
   img.restaurant-img {
     height: 50vh;
+  }
+  .list-item {
+    padding: 0rem;
   }
 }

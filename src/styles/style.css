@@ -106,16 +106,18 @@ a.normal_link:hover {
 }
 
 .list-item {
-  padding: 1rem;
+  padding: 2rem;
 }
 .list-item h1 {
   font-family: "Inter";
   font-weight: bold;
 }
 .list-item .content {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: "50px 0px";
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-item .content .restaurant-card {
+  margin: 1rem 1.5rem;
 }
 
 @media (max-width: 800px) {
@@ -125,5 +127,8 @@ a.normal_link:hover {
   }
   img.restaurant-img {
     height: 50vh;
+  }
+  .list-item {
+    padding: 0rem;
   }
 }/*# sourceMappingURL=style.css.map */

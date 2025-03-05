@@ -39,7 +39,7 @@ const RestaurantListItemComponent: React.FC<
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="list-item mt-4 ms-3">
+    <div className="list-item">
       <h1>
         {listType === "favorites"
           ? "Favorite Restaurants"

@@ -34,23 +34,19 @@ const RestaurantListViewComponent: React.FC<ComponentInterface> = ({
         <hr style={{ width: "100%" }}></hr>
         {/* Conditionally render components based on currentView */}
         {currentView === "favorites" && (
-          <div className="ms-5">
-            <RestaurantListItemComponent
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-              listType={currentView}
-            />
-          </div>
+          <RestaurantListItemComponent
+            currentUser={currentUser}
+            setCurrentUser={setCurrentUser}
+            listType={currentView}
+          />
         )}
 
         {currentView === "visited" && (
-          <div className="ms-5">
-            <RestaurantListItemComponent
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-              listType={currentView}
-            />
-          </div>
+          <RestaurantListItemComponent
+            currentUser={currentUser}
+            setCurrentUser={setCurrentUser}
+            listType={currentView}
+          />
         )}
       </div>
     )

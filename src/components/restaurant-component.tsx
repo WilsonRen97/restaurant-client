@@ -170,7 +170,9 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
                 ""
               )}
 
-              <h4 className="fs-3 mt-4">Description</h4>
+              <h4 className="fs-3 mt-4" style={{ marginTop: "1rem" }}>
+                Description
+              </h4>
               {/* Conditional rendering for buttons */}
               <>
                 {currentUser === null ? (
