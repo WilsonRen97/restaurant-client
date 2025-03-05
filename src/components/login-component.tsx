@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
 import { ComponentInterface } from "../interfaces/component-interface";
+import { ErrorResponse } from "../interfaces/error-interface";
 
 const LoginComponent: React.FC<ComponentInterface> = ({
   currentUser,
@@ -28,8 +29,13 @@ const LoginComponent: React.FC<ComponentInterface> = ({
       );
       setCurrentUser(AuthService.getCurrentUser());
       nagivate("/profile");
-    } catch (e: any) {
-      setMessage(e.response.data);
+    } catch (e: unknown) {
+      if (typeof e === "object" && e !== null && "response" in e) {
+        const error = e as ErrorResponse;
+        setMessage(error.response.data);
+      } else {
+        setMessage("An unexpected error occurred.");
+      }
     }
   };
 

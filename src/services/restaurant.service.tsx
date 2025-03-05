@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8080/api/restaurants";
 const Comment_URL = "http://localhost:8080/api/comments";
+type ErrorWithMessage = { message: string };
 
 class RestaurantService {
   private token: string;
@@ -15,8 +16,13 @@ class RestaurantService {
     try {
       const response = await axios.get(`${API_URL}/${id}`);
       return response.data;
-    } catch (error: any) {
-      throw new Error(error.message);
+    } catch (error: unknown) {
+      if (typeof error === "object" && error !== null && "message" in error) {
+        const errorWithMessage = error as ErrorWithMessage;
+        throw new Error(errorWithMessage.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   }
 
@@ -24,8 +30,13 @@ class RestaurantService {
     try {
       const response = await axios.get(`${API_URL}/findByName/${name}`);
       return response.data;
-    } catch (error: any) {
-      throw new Error(error.message);
+    } catch (error: unknown) {
+      if (typeof error === "object" && error !== null && "message" in error) {
+        const errorWithMessage = error as ErrorWithMessage;
+        throw new Error(errorWithMessage.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   }
 
@@ -37,8 +48,13 @@ class RestaurantService {
         { headers: { Authorization: this.token } }
       );
       return response.data;
-    } catch (error: any) {
-      throw new Error(error.message);
+    } catch (error: unknown) {
+      if (typeof error === "object" && error !== null && "message" in error) {
+        const errorWithMessage = error as ErrorWithMessage;
+        throw new Error(errorWithMessage.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   }
 
@@ -50,8 +66,13 @@ class RestaurantService {
         { headers: { Authorization: this.token } }
       );
       return response.data;
-    } catch (error: any) {
-      throw new Error(error.message);
+    } catch (error: unknown) {
+      if (typeof error === "object" && error !== null && "message" in error) {
+        const errorWithMessage = error as ErrorWithMessage;
+        throw new Error(errorWithMessage.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   }
 
@@ -63,8 +84,13 @@ class RestaurantService {
         { headers: { Authorization: this.token } }
       );
       return response.data;
-    } catch (error: any) {
-      throw new Error(error.message);
+    } catch (error: unknown) {
+      if (typeof error === "object" && error !== null && "message" in error) {
+        const errorWithMessage = error as ErrorWithMessage;
+        throw new Error(errorWithMessage.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   }
 
@@ -76,8 +102,13 @@ class RestaurantService {
         { headers: { Authorization: this.token } }
       );
       return response.data;
-    } catch (error: any) {
-      throw new Error(error.message);
+    } catch (error: unknown) {
+      if (typeof error === "object" && error !== null && "message" in error) {
+        const errorWithMessage = error as ErrorWithMessage;
+        throw new Error(errorWithMessage.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   }
 
@@ -85,8 +116,13 @@ class RestaurantService {
     try {
       const response = await axios.get(`${API_URL}/gallery/random-restaurants`);
       return response.data;
-    } catch (error: any) {
-      throw new Error(error.message);
+    } catch (error: unknown) {
+      if (typeof error === "object" && error !== null && "message" in error) {
+        const errorWithMessage = error as ErrorWithMessage;
+        throw new Error(errorWithMessage.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   }
 
@@ -96,8 +132,13 @@ class RestaurantService {
         params: { listType },
       });
       return response.data;
-    } catch (error: any) {
-      throw new Error(error.message);
+    } catch (error: unknown) {
+      if (typeof error === "object" && error !== null && "message" in error) {
+        const errorWithMessage = error as ErrorWithMessage;
+        throw new Error(errorWithMessage.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
     }
   }
 }

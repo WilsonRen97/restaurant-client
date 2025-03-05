@@ -22,7 +22,7 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
   const [restaurant, setRestaurant] = useState<Restaurant | null>(null);
   const [showCommentArea, setShowCommentArea] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [content, setContent] = useState("");
   const [description, setDescription] = useState("");
   const [editing, setEditing] = useState(false);
@@ -40,8 +40,12 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
         if (data.description) {
           setDescription(data.description);
         }
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Unknown error:" + err);
+        }
       } finally {
         setLoading(false);
       }
@@ -68,6 +72,7 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
       }
     } catch (error) {
       console.error("Error adding comment:", error);
+      window.alert("Error adding comment:" + error);
     }
   };
 
@@ -81,6 +86,7 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
       }
     } catch (err) {
       console.error("Error during save:", error);
+      window.alert("Error during save:" + error);
     }
   };
 
