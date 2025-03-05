@@ -14,11 +14,16 @@ const RestaurantListItemComponent: React.FC<
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!currentUser) {
+      window.alert("Error occur. Please try again.");
+      return;
+    }
+
     const fetchUserRestaurants = async () => {
       console.log("listType ", listType);
       try {
         const data = await RestaurantService.getUserRestaurantItems(
-          currentUser!.user._id,
+          currentUser.user._id,
           listType
         );
         if (listType === "favorites") {

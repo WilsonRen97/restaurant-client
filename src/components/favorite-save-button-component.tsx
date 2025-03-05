@@ -23,17 +23,22 @@ const FavoriteVisitedButtonComponent: React.FC<
 
   // Handle adding/removing from favorites
   const toggleFavorite = async () => {
+    if (!currentUser) {
+      window.alert("Error occur. Please try again.");
+      return;
+    }
+
     if (!isFavorite) {
       try {
         const data = await RestaurantService.saveToList(
-          currentUser!.user._id,
+          currentUser.user._id,
           restaurantId,
           "favorites"
         );
 
         const updatedData = {
           ...data,
-          token: currentUser!.token,
+          token: currentUser.token,
         };
 
         localStorage.setItem("user", JSON.stringify(updatedData));
@@ -43,13 +48,13 @@ const FavoriteVisitedButtonComponent: React.FC<
     } else {
       try {
         const data = await RestaurantService.deleteFromList(
-          currentUser!.user._id,
+          currentUser.user._id,
           restaurantId,
           "favorites"
         );
         const updatedData = {
           ...data, // Spread the existing properties from the `data` object
-          token: currentUser!.token, // Add the `token` property
+          token: currentUser.token, // Add the `token` property
         };
 
         localStorage.setItem("user", JSON.stringify(updatedData));
@@ -64,16 +69,21 @@ const FavoriteVisitedButtonComponent: React.FC<
 
   // Handle adding/removing from visited list
   const toggleVisited = async () => {
+    if (!currentUser) {
+      window.alert("Error occur. Please try again.");
+      return;
+    }
+
     if (!isVisited) {
       try {
         const data = await RestaurantService.saveToList(
-          currentUser!.user._id,
+          currentUser.user._id,
           restaurantId,
           "visited"
         );
         const updatedData = {
           ...data, // Spread the existing properties from the `data` object
-          token: currentUser!.token, // Add the `token` property
+          token: currentUser.token, // Add the `token` property
         };
 
         localStorage.setItem("user", JSON.stringify(updatedData));
@@ -83,13 +93,13 @@ const FavoriteVisitedButtonComponent: React.FC<
     } else {
       try {
         const data = await RestaurantService.deleteFromList(
-          currentUser!.user._id,
+          currentUser.user._id,
           restaurantId,
           "visited"
         );
         const updatedData = {
           ...data, // Spread the existing properties from the `data` object
-          token: currentUser!.token, // Add the `token` property
+          token: currentUser.token, // Add the `token` property
         };
 
         localStorage.setItem("user", JSON.stringify(updatedData));
