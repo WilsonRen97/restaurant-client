@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ComponentInterface } from "../interfaces/component-interface";
 
 const ProfileComponent: React.FC<ComponentInterface> = ({
@@ -13,7 +14,7 @@ const ProfileComponent: React.FC<ComponentInterface> = ({
         <div>
           <h2>Here is your personal profile:</h2>
 
-          <table className="table">
+          <table className="table" style={{ fontSize: "1.2rem" }}>
             <tbody>
               <tr>
                 <td>

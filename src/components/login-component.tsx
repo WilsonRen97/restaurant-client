@@ -40,7 +40,7 @@ const LoginComponent: React.FC<ComponentInterface> = ({
   };
 
   return (
-    <div style={{ padding: "3rem" }} className="col-md-12">
+    <div style={{ padding: "3rem" }} className="col-md-12 inter-font">
       <div>
         {message && <div className="alert alert-danger">{message}</div>}
         <div className="form-group">
