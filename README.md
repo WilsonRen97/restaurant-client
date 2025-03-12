@@ -2,8 +2,6 @@
 
 A modern restaurant discovery platform for food enthusiasts exploring Michelin-starred dining in Taiwan. Built with **React.js** and **TypeScript**, Tasty in Taiwan allows users to search, review, and favorite restaurants, with separate experiences for customers and restauranteurs.
 
----
-
 ## Instruction
 
 ### Local Environment
@@ -18,8 +16,6 @@ A modern restaurant discovery platform for food enthusiasts exploring Michelin-s
 - If `npm install` fails, make sure you have Node.js installed.
 - If `npm start` fails, check the terminal for error messages.
 
----
-
 ## API used
 
 ### Restaurant API
@@ -30,8 +26,6 @@ This is a self-developed RESTful API, made with Node.js, Express, and MongoDB. I
 2. MongoDB Integration: MongoDB for storing and retrieving user profiles, detailed 2024 Michelin restaurant data (including stars, address, and descriptions), and user-generated comments.
 3. RESTful Architecture: Well-defined endpoints for seamless interaction with users, restaurants, and comments.
 
----
-
 ## Features
 
 ### Discover Restaurants
@@ -39,7 +33,7 @@ This is a self-developed RESTful API, made with Node.js, Express, and MongoDB. I
 - Explore a comprehensive database of **Michelin-starred restaurants** in Taiwan (3-star, 2-star, and 1-star).
 - Homepage displays **3 random restaurants** from the database to inspire your next dining experience.
 
-### 👥 User Roles
+### User Roles
 
 - **Customer:**
 
