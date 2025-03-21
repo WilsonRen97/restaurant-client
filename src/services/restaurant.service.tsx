@@ -43,6 +43,8 @@ class RestaurantService {
   }
 
   async postComment(id: string, content: string, userID: string) {
+    const user = localStorage.getItem("user");
+    this.token = user ? JSON.parse(user).token : "";
     try {
       const response = await axios.post(
         `${Comment_URL}/${id}`,
