@@ -1,7 +1,9 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/restaurants";
-const Comment_URL = "http://localhost:8080/api/comments";
+const API_URL =
+  "https://restaurant-server-542.netlify.app/.netlify/functions/api/restaurants";
+const Comment_URL =
+  "https://restaurant-server-542.netlify.app/.netlify/functions/api/comments";
 type ErrorWithMessage = { message: string };
 
 class RestaurantService {

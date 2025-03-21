@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/user";
+const API_URL =
+  "https://restaurant-server-542.netlify.app/.netlify/functions/api/user";
 
 class AuthService {
   login(email: string, password: string) {
