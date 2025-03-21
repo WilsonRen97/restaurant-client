@@ -59,6 +59,7 @@ const RestaurantComponent: React.FC<ComponentInterface> = ({
 
   const handleCommentSubmit = async () => {
     console.log("handleCmmentSubmit call");
+    console.log(currentUser);
     try {
       if (restaurant && currentUser) {
         await RestaurantService.postComment(
