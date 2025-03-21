@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ComponentInterface } from "../interfaces/component-interface";
 
 const ProfileComponent: React.FC<ComponentInterface> = ({
